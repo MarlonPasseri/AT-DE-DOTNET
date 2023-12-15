@@ -1,0 +1,62 @@
+﻿@model IEnumerable<AT_DE_JAVA.Models.Restaurante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gerenciador De Comida</h1>
+
+<p>
+    <div class="form-group">
+        <a asp-action="Create">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </a>
+    </div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garçon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingrediente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Garçon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingrediente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section footer{
+    <span>Este é o footer do Restaurante!</span>
+
+}
+
